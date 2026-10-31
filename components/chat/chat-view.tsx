@@ -11,10 +11,10 @@ import { getMessageText, useChatSession } from "@/components/chat/chat-session";
 import { Button } from "@/components/ui/button";
 
 const SUGGESTED_QUESTIONS = [
-  "Tell me about yourself",
-  "What are your strongest skills?",
-  "What projects are you proud of?",
-  "Are you open to new roles?",
+  "Who are you?",
+  "What are you working on now?",
+  "What do you focus on?",
+  "Are you available for freelance work?",
 ];
 
 const STICK_TO_BOTTOM_THRESHOLD = 48;

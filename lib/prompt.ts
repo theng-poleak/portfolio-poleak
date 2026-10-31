@@ -27,7 +27,9 @@ export function buildSystemPrompt(): string {
 <portfolio_content>
 <profile>
 Name: ${name}
+Goes by: ${profile.preferredName ?? name}
 Headline: ${profile.headline}
+Location: ${profile.location ?? "not provided"}
 
 ${profile.bio}
 </profile>

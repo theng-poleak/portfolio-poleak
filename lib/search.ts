@@ -6,7 +6,28 @@ import type { SearchItem } from "@/lib/search-types";
 
 /** Flattens /content into the list the command palette searches on the client. */
 export function buildSearchIndex(): SearchItem[] {
-  const { skills, experience, projects } = getContent();
+  const { profile, skills, experience, projects } = getContent();
+  const { sections } = profile;
+
+  const aboutFacts: [subtitle: string, values: string[]][] = [
+    ["Focus area", sections.focusAreas],
+    ["Currently", sections.currently],
+    ["Education", sections.education],
+    ["Languages", sections.languages],
+    ["Location", profile.location ? [profile.location] : []],
+    ["Availability", sections.availability],
+  ];
+
+  const aboutItems = aboutFacts.flatMap(([subtitle, values]) =>
+    values.map((value): SearchItem => ({
+      id: `about:${subtitle}:${value}`,
+      category: "About",
+      title: value,
+      subtitle,
+      keywords: [],
+      href: "/about",
+    })),
+  );
 
   const pages = navItems.map(({ href, label, description }): SearchItem => ({
     id: `page:${href}`,
@@ -55,5 +76,12 @@ export function buildSearchIndex(): SearchItem[] {
     href: "/skills",
   }));
 
-  return [...pages, ...projectItems, ...experienceItems, ...hardSkills, ...softSkills];
+  return [
+    ...pages,
+    ...aboutItems,
+    ...projectItems,
+    ...experienceItems,
+    ...hardSkills,
+    ...softSkills,
+  ];
 }

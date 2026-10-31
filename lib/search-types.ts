@@ -1,4 +1,10 @@
-export const searchCategories = ["Pages", "Projects", "Experience", "Skills"] as const;
+export const searchCategories = [
+  "Pages",
+  "About",
+  "Projects",
+  "Experience",
+  "Skills",
+] as const;
 
 export type SearchCategory = (typeof searchCategories)[number];
 

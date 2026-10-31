@@ -41,7 +41,7 @@ Content is validated when the site builds. A typo gives a clear error that names
 
 | File              | Shape                                                                                                  |
 | ----------------- | ------------------------------------------------------------------------------------------------------ |
-| `profile.md`      | Frontmatter with `name` (the site name) and `headline`, then your bio as Markdown                      |
+| `profile.md`      | Frontmatter with `name`, `headline`, `preferredName?` and `location?`, then `##` sections (see below)  |
 | `skills.json`     | `{ hard: [{ group, items: string[] }], soft: [{ name, description }] }`                                |
 | `experience.json` | `[{ id, type: "work" \| "school", title, organization, start, end, bullets: string[], projectSlug? }]` |
 | `projects.json`   | `[{ slug, title, description, tags: string[], repoUrl, demoUrl?, highlights?: string[] }]`             |
@@ -54,6 +54,18 @@ Tips:
 - Anything in these files can be repeated by the chat assistant and is public on the site. Leave out `phone` or `location` if you'd rather not share them.
 
 The Markdown in `profile.md` supports headings, bold, italics, links, lists, quotes and code.
+
+### The About page
+
+`/about` is built from the sections in `profile.md`. Any section you remove simply disappears from the page.
+
+- `## Intro` and `## Beyond code` are paragraphs.
+- `## Focus areas`, `## Currently`, `## Education`, `## Languages` and `## Availability` are bullet lists.
+
+Two optional files in `public/` are picked up automatically at build time:
+
+- `me.jpg`: your photo. Without it, the page shows your initials.
+- `cv.pdf`: adds the Download CV button. It is gitignored because a CV usually holds private details. To publish it, check what's inside, remove `/public/cv.pdf` from `.gitignore` and commit it.
 
 ## Environment variables
 

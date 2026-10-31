@@ -1,13 +1,17 @@
 import "server-only";
 
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 
 import { z } from "zod";
 
+import { parseMarkdown } from "@/lib/markdown";
+
 const profileFrontmatterSchema = z.object({
   name: z.string().min(1),
+  preferredName: z.string().min(1).optional(),
   headline: z.string().min(1),
+  location: z.string().min(1).optional(),
 });
 
 const skillsSchema = z.object({
@@ -50,7 +54,20 @@ const contactSchema = z.object({
   location: z.string().min(1).optional(),
 });
 
-export type Profile = z.infer<typeof profileFrontmatterSchema> & { bio: string };
+export type ProfileSections = {
+  intro: string;
+  focusAreas: string[];
+  currently: string[];
+  education: string[];
+  languages: string[];
+  availability: string[];
+  beyondCode: string;
+};
+
+export type Profile = z.infer<typeof profileFrontmatterSchema> & {
+  bio: string;
+  sections: ProfileSections;
+};
 export type Skills = z.infer<typeof skillsSchema>;
 export type Experience = z.infer<typeof experienceSchema>[number];
 export type Project = z.infer<typeof projectsSchema>[number];
@@ -80,6 +97,36 @@ function readJson<T>(schema: z.ZodType<T>, fileName: string): T {
   return parseOrThrow(schema, JSON.parse(readContentFile(fileName)), fileName);
 }
 
+function splitSections(body: string): Map<string, string> {
+  const sections = new Map<string, string>();
+  for (const part of body.split(/^## /m).slice(1)) {
+    const lineEnd = part.indexOf("\n");
+    const heading = lineEnd === -1 ? part : part.slice(0, lineEnd);
+    const text = lineEnd === -1 ? "" : part.slice(lineEnd + 1);
+    sections.set(heading.trim().toLowerCase(), text.trim());
+  }
+  return sections;
+}
+
+function listItems(markdown = ""): string[] {
+  return parseMarkdown(markdown).flatMap((block) =>
+    block.type === "list" ? block.items : [],
+  );
+}
+
+function parseProfileSections(body: string): ProfileSections {
+  const sections = splitSections(body);
+  return {
+    intro: sections.get("intro") ?? "",
+    focusAreas: listItems(sections.get("focus areas")),
+    currently: listItems(sections.get("currently")),
+    education: listItems(sections.get("education")),
+    languages: listItems(sections.get("languages")),
+    availability: listItems(sections.get("availability")),
+    beyondCode: sections.get("beyond code") ?? "",
+  };
+}
+
 function readProfile(): Profile {
   const raw = readContentFile("profile.md").replace(/\r\n/g, "\n");
   const match = raw.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
@@ -101,7 +148,8 @@ function readProfile(): Profile {
   );
 
   const frontmatter = parseOrThrow(profileFrontmatterSchema, fields, "profile.md");
-  return { ...frontmatter, bio: match[2].trim() };
+  const bio = match[2].trim();
+  return { ...frontmatter, bio, sections: parseProfileSections(bio) };
 }
 
 function assertContentIsConsistent({ experience, projects }: Content) {
@@ -139,6 +187,10 @@ export function getContent(): Content {
 
   cached = content;
   return content;
+}
+
+export function publicFileExists(fileName: string): boolean {
+  return existsSync(path.join(process.cwd(), "public", fileName));
 }
 
 export function getProject(slug: string): Project | undefined {

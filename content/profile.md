@@ -1,20 +1,41 @@
 ---
-name: Poleak
-headline: "TODO: replace - Software Developer"
+name: Poleak Theng
+preferredName: Leak
+headline: "Software developer building microservices with Java and Spring Boot"
+location: Phnom Penh, Cambodia
 ---
 
-TODO: replace this whole file with your own bio. The `name` above is the site name shown in the sidebar, and the `headline` appears on the About page.
+## Intro
 
-Hi, I'm a software developer who enjoys turning rough ideas into polished, useful products. I care about clean interfaces, reliable systems and code that the next person can actually read.
+Poleak Theng, who goes by Leak, is a software developer based in Phnom Penh, Cambodia. Leak develops systems and websites for businesses and NGOs, with the aim of creating solutions that help a business and showcase its work to a global audience through modern, secure technology.
 
-## What I do
+## Focus areas
 
-I work across the stack, mostly with **TypeScript**, **React** and **Node.js**. Lately I have been exploring how AI can make everyday software feel more natural to use.
+- Backend APIs
+- Microservice architecture
+- Databases and caching
+- Containerized deployment
 
-## Beyond work
+## Currently
 
-When I'm not coding you will usually find me reading, learning something new or helping friends with their side projects.
+- Web Trainer at Passerelles Numériques Cambodia
+- Freelance Software Developer
 
-## What I'm looking for
+## Education
 
-I'm open to roles where I can build real products with a thoughtful team.
+- Associate Degree in Computer Science, Passerelles Numériques Cambodia
+- Currently in the third year at University of Puthisastra
+
+## Languages
+
+- Khmer (mother tongue)
+- English
+
+## Availability
+
+- Freelance projects
+- Part-time jobs (weekends)
+
+## Beyond code
+
+Outside of work, Leak enjoys gaming, researching technology and studying system architecture.
