@@ -66,7 +66,7 @@ export function SidebarContent({
 
       <nav
         aria-label="Main"
-        className="flex min-h-0 flex-1 flex-col gap-1 overflow-y-auto"
+        className="flex min-h-0 flex-1 flex-col gap-1 overflow-x-hidden overflow-y-auto"
       >
         <div className="hidden sidebar-collapsed:block">
           <SidebarItem

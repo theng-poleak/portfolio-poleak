@@ -7,6 +7,7 @@ import { SidebarScript } from "@/components/layout/sidebar-script";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { getContent } from "@/lib/content";
+import { buildSearchIndex } from "@/lib/search";
 import { siteUrl } from "@/lib/site";
 
 import "./globals.css";
@@ -54,7 +55,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <TooltipProvider delayDuration={300}>
             <ChatSessionProvider>
-              <AppShell siteName={profile.name}>{children}</AppShell>
+              <AppShell siteName={profile.name} searchItems={buildSearchIndex()}>
+                {children}
+              </AppShell>
             </ChatSessionProvider>
           </TooltipProvider>
         </ThemeProvider>

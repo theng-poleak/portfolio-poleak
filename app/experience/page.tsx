@@ -31,7 +31,11 @@ export default function ExperiencePage() {
           const { label, icon: Icon } = typeBadges[entry.type];
 
           return (
-            <li key={entry.id} className="relative pb-10 pl-6 last:pb-0">
+            <li
+              key={entry.id}
+              id={entry.id}
+              className="relative scroll-mt-8 pb-10 pl-6 last:pb-0"
+            >
               <span
                 aria-hidden="true"
                 className="absolute top-2 -left-[5px] size-2.5 rounded-full bg-muted-foreground ring-4 ring-background"

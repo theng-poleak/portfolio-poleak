@@ -2,12 +2,13 @@
 
 import { Menu, Search } from "lucide-react";
 import Link from "next/link";
-import { useCallback, useRef, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 
 import { FeedbackDialog } from "@/components/layout/feedback-dialog";
 import { SettingsDialog } from "@/components/layout/settings-dialog";
 import { SidebarContent, type ShellDialog } from "@/components/layout/sidebar";
 import { SiteLogo } from "@/components/layout/site-logo";
+import { SearchDialog } from "@/components/search/search-dialog";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -16,13 +17,15 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import type { SearchItem } from "@/lib/search-types";
 
 type AppShellProps = {
   siteName: string;
+  searchItems: SearchItem[];
   children: ReactNode;
 };
 
-export function AppShell({ siteName, children }: AppShellProps) {
+export function AppShell({ siteName, searchItems, children }: AppShellProps) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [dialog, setDialog] = useState<ShellDialog | null>(null);
   const restoreFocusTo = useRef<HTMLElement | null>(null);
@@ -33,6 +36,22 @@ export function AppShell({ siteName, children }: AppShellProps) {
     setDrawerOpen(false);
     setDialog(next);
   }, []);
+
+  useEffect(() => {
+    function handleKeyDown(event: KeyboardEvent) {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        if (dialog === "search") {
+          setDialog(null);
+        } else {
+          openDialog("search");
+        }
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [dialog, openDialog]);
 
   const handleDialogChange = (name: ShellDialog) => (open: boolean) => {
     setDialog(open ? name : null);
@@ -108,6 +127,12 @@ export function AppShell({ siteName, children }: AppShellProps) {
         </main>
       </div>
 
+      <SearchDialog
+        items={searchItems}
+        open={dialog === "search"}
+        onOpenChange={handleDialogChange("search")}
+        onCloseAutoFocus={handleCloseAutoFocus}
+      />
       <SettingsDialog
         open={dialog === "settings"}
         onOpenChange={handleDialogChange("settings")}

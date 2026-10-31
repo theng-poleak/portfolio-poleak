@@ -1,0 +1,59 @@
+import "server-only";
+
+import { getContent } from "@/lib/content";
+import { navItems } from "@/lib/navigation";
+import type { SearchItem } from "@/lib/search-types";
+
+/** Flattens /content into the list the command palette searches on the client. */
+export function buildSearchIndex(): SearchItem[] {
+  const { skills, experience, projects } = getContent();
+
+  const pages = navItems.map(({ href, label, description }): SearchItem => ({
+    id: `page:${href}`,
+    category: "Pages",
+    title: label,
+    subtitle: description,
+    keywords: [],
+    href,
+  }));
+
+  const projectItems = projects.map((project): SearchItem => ({
+    id: `project:${project.slug}`,
+    category: "Projects",
+    title: project.title,
+    subtitle: project.description,
+    keywords: project.tags,
+    href: `/projects/${project.slug}`,
+  }));
+
+  const experienceItems = experience.map((entry): SearchItem => ({
+    id: `experience:${entry.id}`,
+    category: "Experience",
+    title: entry.title,
+    subtitle: entry.organization,
+    keywords: entry.bullets,
+    href: `/experience#${entry.id}`,
+  }));
+
+  const hardSkills = skills.hard.flatMap((group) =>
+    group.items.map((item): SearchItem => ({
+      id: `skill:${group.group}:${item}`,
+      category: "Skills",
+      title: item,
+      subtitle: group.group,
+      keywords: [],
+      href: "/skills",
+    })),
+  );
+
+  const softSkills = skills.soft.map((skill): SearchItem => ({
+    id: `skill:${skill.name}`,
+    category: "Skills",
+    title: skill.name,
+    subtitle: skill.description,
+    keywords: [],
+    href: "/skills",
+  }));
+
+  return [...pages, ...projectItems, ...experienceItems, ...hardSkills, ...softSkills];
+}
