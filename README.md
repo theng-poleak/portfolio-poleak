@@ -42,15 +42,17 @@ Content is validated when the site builds. A typo gives a clear error that names
 | File              | Shape                                                                                                  |
 | ----------------- | ------------------------------------------------------------------------------------------------------ |
 | `profile.md`      | Frontmatter with `name`, `headline`, `preferredName?` and `location?`, then `##` sections (see below)  |
-| `skills.json`     | `{ hard: [{ group, items: string[] }], soft: [{ name, description }] }`                                |
+| `skills.json`     | `{ hard: [{ group, items: [{ name, level, projects?: string[] }] }], soft: [{ name, description }] }`  |
 | `experience.json` | `[{ id, type: "work" \| "school", title, organization, start, end, bullets: string[], projectSlug? }]` |
-| `projects.json`   | `[{ slug, title, description, tags: string[], repoUrl, demoUrl?, highlights?: string[] }]`             |
+| `projects.json`   | `[{ slug, title, description, tags: string[], repoUrl?, demoUrl?, highlights?: string[] }]`            |
 | `contact.json`    | `{ email, github, linkedin, phone?, location? }`                                                       |
 
 Tips:
 
 - Project `slug` values become URLs (`/projects/my-slug`), so use lowercase letters, numbers and hyphens.
 - `start` and `end` are free text, for example `Jan 2024` and `Present`.
+- A skill's `level` is `strong`, `working` or `familiar`, and its `projects` are project slugs.
+- Every project tag must exactly match a skill name in `skills.json`. The build fails on a mismatch, a duplicate skill or an unknown project slug.
 - Anything in these files can be repeated by the chat assistant and is public on the site. Leave out `phone` or `location` if you'd rather not share them.
 
 The Markdown in `profile.md` supports headings, bold, italics, links, lists, quotes and code.

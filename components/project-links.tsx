@@ -9,15 +9,19 @@ type ProjectLinksProps = {
 };
 
 export function ProjectLinks({ project }: ProjectLinksProps) {
+  if (!project.repoUrl && !project.demoUrl) return null;
+
   return (
     <div className="flex flex-wrap gap-2">
-      <Button variant="outline" size="sm" asChild>
-        <a href={project.repoUrl} target="_blank" rel="noreferrer">
-          <GitHubIcon />
-          GitHub
-          <span className="sr-only">repository for {project.title}</span>
-        </a>
-      </Button>
+      {project.repoUrl && (
+        <Button variant="outline" size="sm" asChild>
+          <a href={project.repoUrl} target="_blank" rel="noreferrer">
+            <GitHubIcon />
+            GitHub
+            <span className="sr-only">repository for {project.title}</span>
+          </a>
+        </Button>
+      )}
       {project.demoUrl && (
         <Button variant="outline" size="sm" asChild>
           <a href={project.demoUrl} target="_blank" rel="noreferrer">

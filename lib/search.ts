@@ -58,9 +58,9 @@ export function buildSearchIndex(): SearchItem[] {
 
   const hardSkills = skills.hard.flatMap((group) =>
     group.items.map((item): SearchItem => ({
-      id: `skill:${group.group}:${item}`,
+      id: `skill:${item.name}`,
       category: "Skills",
-      title: item,
+      title: item.name,
       subtitle: group.group,
       keywords: [],
       href: "/skills",

@@ -1,34 +1,131 @@
 [
   {
-    "slug": "project-dashboard",
-    "title": "Analytics Dashboard (TODO: replace)",
-    "description": "TODO: replace - A real-time dashboard that turns raw product events into clear, shareable charts.",
-    "tags": ["Next.js", "TypeScript", "PostgreSQL"],
-    "repoUrl": "https://github.com/your-username/analytics-dashboard",
-    "demoUrl": "https://example.com/dashboard",
+    "slug": "employee-management-system",
+    "title": "Employee Management System (EMS)",
+    "description": "Backend for the Attendance Service of a microservice-based HR platform at APD Bank, covering shift management, schedule assignment, attendance tracking and leave handling.",
+    "tags": [
+      "Java",
+      "Spring Boot",
+      "JPA/Hibernate",
+      "REST APIs",
+      "Cursor pagination",
+      "Feign",
+      "Role-based authorization",
+      "PostgreSQL",
+      "Redis",
+      "RabbitMQ",
+      "Microservices",
+      "Docker",
+      "Kubernetes"
+    ],
     "highlights": [
-      "TODO: replace - Streams live updates to hundreds of concurrent viewers.",
-      "TODO: replace - Designed the query layer to keep reports under one second.",
-      "TODO: replace - Added role-based sharing for teams."
+      "Built shift creation and attendance schedule assignment, calculating working hours from clock in/out times with late and early detection.",
+      "Implemented a leave type service with pro-rata and carry-over leave balance calculations.",
+      "Built cursor-paginated queries combining shifts and holiday/day-off records for large datasets.",
+      "Designed a permission seeder for the Time & Attendance module with about 65 entries and role-based scoping.",
+      "Defined REST API contracts with frontend developers for shift, schedule and attendance screens."
     ]
   },
   {
-    "slug": "project-automation",
-    "title": "Report Automation Tool (TODO: replace)",
-    "description": "TODO: replace - A small internal tool that replaced a weekly manual spreadsheet process.",
-    "tags": ["Python", "REST APIs", "Docker"],
-    "repoUrl": "https://github.com/your-username/report-automation",
+    "slug": "apd-chat-system",
+    "title": "APD Chat System (APD-CS)",
+    "description": "Backend for a real-time internal chat platform at APD Bank, covering admin reporting, messaging security, API performance and production stability.",
+    "tags": [
+      "Java",
+      "Spring Boot",
+      "WebSocket/STOMP",
+      "REST APIs",
+      "Cursor pagination",
+      "PostgreSQL",
+      "Redis",
+      "RabbitMQ",
+      "MinIO",
+      "Production debugging"
+    ],
     "highlights": [
-      "TODO: replace - Saved the team several hours every week.",
-      "TODO: replace - Runs on a schedule and alerts on failures."
+      "Improved chat history API latency from about 400ms to about 14ms using Redis-based user validation, cursor pagination and database projections.",
+      "Implemented WebSocket/STOMP subscription authorization that validates users against chatroom membership and destination rules.",
+      "Built reporting services for daily, monthly and yearly metrics on message volume, file storage and user activity.",
+      "Resolved production incidents including RabbitMQ consumer failures and MinIO storage overload."
     ]
   },
   {
-    "slug": "project-campus-events",
-    "title": "Campus Events App (TODO: replace)",
-    "description": "TODO: replace - A mobile-friendly web app for finding and sharing student events.",
-    "tags": ["React", "Node.js", "Redis"],
-    "repoUrl": "https://github.com/your-username/campus-events",
-    "demoUrl": "https://example.com/campus-events"
+    "slug": "admin-management-system",
+    "title": "Admin Management System (AMS)",
+    "description": "Reminder and room booking features for an internal admin platform at APD Bank, plus hardened approval workflows.",
+    "tags": [
+      "Java",
+      "Spring Boot",
+      "Cron jobs",
+      "Role-based authorization",
+      "Penetration-test remediation",
+      "Production debugging"
+    ],
+    "highlights": [
+      "Built a cron-based service running every 5 minutes to detect due reminders and push notifications through the internal chat system.",
+      "Added admin-only authorization on booking history and workflow approval actions to address penetration test findings.",
+      "Diagnosed production issues, including a workflow approval failure caused by a database remark-type mismatch."
+    ]
+  },
+  {
+    "slug": "go-ahead-website",
+    "title": "Go Ahead Organization Website",
+    "description": "Public website for the Go Ahead organization to showcase programs, drive donor engagement and support fundraising.",
+    "tags": [
+      "Astro",
+      "Vue 3",
+      "React",
+      "Nodemailer/SMTP",
+      "Input sanitization",
+      "Facebook integration"
+    ],
+    "highlights": [
+      "Built the site with Astro using Vue and React components.",
+      "Developed a secure contact form with Nodemailer/SMTP and input sanitization.",
+      "Created a donation page with segmented flows for individual, corporate and institutional donors."
+    ]
+  },
+  {
+    "slug": "kheobs-website",
+    "title": "Kheobs Website",
+    "description": "WordPress website for Kheobs, an NGO client, built at Passerelles Numériques Cambodia.",
+    "tags": ["WordPress", "Nginx", "Jira", "Facebook integration"],
+    "highlights": [
+      "Led a team to build and launch the website, including Facebook and email integration.",
+      "Configured and deployed the site on Nginx with a custom domain.",
+      "Managed sprints and task distribution in Jira, and led testing and bug resolution."
+    ]
+  },
+  {
+    "slug": "pos-management-system",
+    "title": "POS Management System",
+    "description": "Multi-user point-of-sale system for a phone retail shop, covering stock in/out tracking and profit reporting by day, month and year.",
+    "tags": [
+      "PHP (MVC)",
+      "JavaScript",
+      "Database schema design",
+      "System architecture",
+      "AWS",
+      "phpMyAdmin",
+      "Jira",
+      "GitHub"
+    ],
+    "repoUrl": "https://github.com/poleak-theng065/POS-Management-System-VC1",
+    "highlights": [
+      "Led the team and designed the system architecture, database schema and business workflows.",
+      "Deployed and maintained the system on AWS.",
+      "Managed sprints in Jira and led testing and bug resolution."
+    ]
+  },
+  {
+    "slug": "face-detection-attendance",
+    "title": "Face Detection & Attendance System",
+    "description": "Real-time face detection and recognition system that automates check-in and check-out via webcam.",
+    "tags": ["Python", "OpenCV", "face_recognition", "pyttsx3", "GitHub"],
+    "repoUrl": "https://github.com/poleak-theng065/Face_Scan_Team_6",
+    "highlights": [
+      "Added late-arrival detection, text-to-speech name announcements and a face-registration flow for new users.",
+      "Led a team through planning, coding, testing and debugging as a practical application of algorithms coursework."
+    ]
   }
 ]

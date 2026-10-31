@@ -55,9 +55,11 @@ export default function ProjectsPage() {
                   ))}
                 </ul>
               </CardContent>
-              <CardFooter>
-                <ProjectLinks project={project} />
-              </CardFooter>
+              {(project.repoUrl || project.demoUrl) && (
+                <CardFooter>
+                  <ProjectLinks project={project} />
+                </CardFooter>
+              )}
             </Card>
           </li>
         ))}

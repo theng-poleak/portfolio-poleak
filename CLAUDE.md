@@ -32,9 +32,9 @@ Library APIs change between versions. Before writing code against Next.js, shadc
 ## Content is the single source of truth
 All personal data lives in `/content`:
 - `profile.md` bio and about me
-- `skills.json` `{ hard: [{ group, items: string[] }], soft: [{ name, description }] }`
+- `skills.json` `{ hard: [{ group, items: [{ name, level: "strong" | "working" | "familiar", projects?: string[] }] }], soft: [{ name, description }] }`
 - `experience.json` `[{ id, type: "work" | "school", title, organization, start, end, bullets: string[], projectSlug?: string }]`
-- `projects.json` `[{ slug, title, description, tags: string[], repoUrl, demoUrl?, highlights?: string[] }]`
+- `projects.json` `[{ slug, title, description, tags: string[], repoUrl?, demoUrl?, highlights?: string[] }]`
 - `contact.json` `{ email, github, linkedin, phone?, location? }`
 
 Rules:

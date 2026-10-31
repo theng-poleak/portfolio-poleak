@@ -6,6 +6,7 @@ import path from "node:path";
 import { z } from "zod";
 
 import { parseMarkdown } from "@/lib/markdown";
+import { skillLevels } from "@/lib/skill-types";
 
 const profileFrontmatterSchema = z.object({
   name: z.string().min(1),
@@ -16,7 +17,16 @@ const profileFrontmatterSchema = z.object({
 
 const skillsSchema = z.object({
   hard: z.array(
-    z.object({ group: z.string().min(1), items: z.array(z.string().min(1)) }),
+    z.object({
+      group: z.string().min(1),
+      items: z.array(
+        z.object({
+          name: z.string().min(1),
+          level: z.enum(skillLevels),
+          projects: z.array(z.string().min(1)).optional(),
+        }),
+      ),
+    }),
   ),
   soft: z.array(z.object({ name: z.string().min(1), description: z.string().min(1) })),
 });
@@ -40,7 +50,7 @@ const projectsSchema = z.array(
     title: z.string().min(1),
     description: z.string().min(1),
     tags: z.array(z.string().min(1)),
-    repoUrl: z.url(),
+    repoUrl: z.url().optional(),
     demoUrl: z.url().optional(),
     highlights: z.array(z.string().min(1)).optional(),
   }),
@@ -152,6 +162,38 @@ function readProfile(): Profile {
   return { ...frontmatter, bio, sections: parseProfileSections(bio) };
 }
 
+function assertSkillsAreConsistent({ skills, projects }: Content) {
+  const slugs = new Set(projects.map(({ slug }) => slug));
+  const skillNames = new Set<string>();
+
+  for (const { items } of skills.hard) {
+    for (const { name, projects: skillProjects = [] } of items) {
+      if (skillNames.has(name)) {
+        throw new Error(`Invalid content/skills.json: duplicate skill "${name}"`);
+      }
+      skillNames.add(name);
+
+      for (const slug of skillProjects) {
+        if (!slugs.has(slug)) {
+          throw new Error(
+            `Invalid content/skills.json: "${name}" links to unknown project "${slug}"`,
+          );
+        }
+      }
+    }
+  }
+
+  for (const { slug, tags } of projects) {
+    for (const tag of tags) {
+      if (!skillNames.has(tag)) {
+        throw new Error(
+          `Invalid content/projects.json: "${slug}" has tag "${tag}", which is not a skill in skills.json`,
+        );
+      }
+    }
+  }
+}
+
 function assertContentIsConsistent({ experience, projects }: Content) {
   const slugs = new Set<string>();
   for (const { slug } of projects) {
@@ -184,6 +226,7 @@ export function getContent(): Content {
     contact: readJson(contactSchema, "contact.json"),
   };
   assertContentIsConsistent(content);
+  assertSkillsAreConsistent(content);
 
   cached = content;
   return content;

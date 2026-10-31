@@ -40,7 +40,7 @@ export function SearchDialog({
     () =>
       new Fuse(items, {
         ignoreLocation: true,
-        threshold: 0.35,
+        threshold: 0.25,
         keys: [
           { name: "title", weight: 3 },
           { name: "subtitle", weight: 2 },
@@ -56,6 +56,11 @@ export function SearchDialog({
       ? fuse.search(trimmed).map(({ item }) => item)
       : items.filter(({ category }) => EMPTY_QUERY_CATEGORIES.has(category));
   }, [fuse, items, query]);
+
+  // While searching, the group holding the best match comes first, so Enter picks it.
+  const orderedCategories = query.trim()
+    ? [...new Set(results.map(({ category }) => category))]
+    : searchCategories;
 
   function handleOpenChange(next: boolean) {
     if (!next) setQuery("");
@@ -87,7 +92,7 @@ export function SearchDialog({
           />
           <CommandList>
             <CommandEmpty>No results found.</CommandEmpty>
-            {searchCategories.map((category) => {
+            {orderedCategories.map((category) => {
               const matches = results.filter((item) => item.category === category);
               if (matches.length === 0) return null;
 

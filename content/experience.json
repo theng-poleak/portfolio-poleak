@@ -10,8 +10,7 @@
       "TODO: replace - Built customer-facing dashboards with React and TypeScript.",
       "TODO: replace - Reduced page load times by rewriting the data-fetching layer.",
       "TODO: replace - Mentored two junior developers through code reviews."
-    ],
-    "projectSlug": "project-dashboard"
+    ]
   },
   {
     "id": "globex-intern",
@@ -23,8 +22,7 @@
     "bullets": [
       "TODO: replace - Shipped an internal tool that automated weekly reporting.",
       "TODO: replace - Wrote API endpoints and tests for the billing service."
-    ],
-    "projectSlug": "project-automation"
+    ]
   },
   {
     "id": "university-degree",
