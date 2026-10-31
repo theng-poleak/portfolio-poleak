@@ -23,6 +23,7 @@ export function pageMetadata({ title, description, path }: PageMetadataInput): M
       title: `${title} | ${name}`,
       description,
       url: path,
+      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
   };
 }
