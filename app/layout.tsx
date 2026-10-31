@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
+import { ChatSessionProvider } from "@/components/chat/chat-session";
 import { AppShell } from "@/components/layout/app-shell";
 import { SidebarScript } from "@/components/layout/sidebar-script";
 import { ThemeProvider } from "@/components/layout/theme-provider";
@@ -52,7 +53,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="h-full">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <TooltipProvider delayDuration={300}>
-            <AppShell siteName={profile.name}>{children}</AppShell>
+            <ChatSessionProvider>
+              <AppShell siteName={profile.name}>{children}</AppShell>
+            </ChatSessionProvider>
           </TooltipProvider>
         </ThemeProvider>
       </body>

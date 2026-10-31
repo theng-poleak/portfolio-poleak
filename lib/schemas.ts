@@ -1,5 +1,32 @@
 import { z } from "zod";
 
+export const CHAT_MESSAGE_MAX_LENGTH = 500;
+export const CHAT_HISTORY_LIMIT = 10;
+const CHAT_REPLY_MAX_LENGTH = 6000;
+
+export const chatRequestSchema = z.object({
+  messages: z
+    .array(
+      z.discriminatedUnion("role", [
+        z.object({
+          role: z.literal("user"),
+          text: z.string().trim().min(1).max(CHAT_MESSAGE_MAX_LENGTH),
+        }),
+        z.object({
+          role: z.literal("assistant"),
+          text: z.string().trim().min(1).max(CHAT_REPLY_MAX_LENGTH),
+        }),
+      ]),
+    )
+    .min(1)
+    .max(CHAT_HISTORY_LIMIT)
+    .refine((messages) => messages.at(-1)?.role === "user", {
+      message: "The last message must come from the user.",
+    }),
+});
+
+export type ChatRequestMessage = z.infer<typeof chatRequestSchema>["messages"][number];
+
 export const FEEDBACK_MAX_LENGTH = 2000;
 
 export const feedbackSchema = z.object({

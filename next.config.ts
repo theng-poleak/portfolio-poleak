@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   outputFileTracingIncludes: {
-    "/api/chat": ["./content/**/*"],
+    "/**": ["./content/**/*"],
   },
   turbopack: {
     rules: {
