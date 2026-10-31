@@ -46,16 +46,18 @@ export default function ExperiencePage() {
                   {label}
                 </Badge>
                 <p className="text-sm text-muted-foreground">
-                  {entry.start} – {entry.end}
+                  {entry.start ? `${entry.start} – ${entry.end}` : entry.end}
                 </p>
               </div>
               <h2 className="mt-2 font-semibold">{entry.title}</h2>
               <p className="text-muted-foreground">{entry.organization}</p>
-              <ul className="mt-3 flex list-disc flex-col gap-1.5 pl-5 text-sm leading-6">
-                {entry.bullets.map((bullet) => (
-                  <li key={bullet}>{bullet}</li>
-                ))}
-              </ul>
+              {entry.bullets.length > 0 && (
+                <ul className="mt-3 flex list-disc flex-col gap-1.5 pl-5 text-sm leading-6">
+                  {entry.bullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+              )}
               {entry.projectSlug && (
                 <Link
                   href={`/projects/${entry.projectSlug}`}

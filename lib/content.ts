@@ -37,7 +37,7 @@ const experienceSchema = z.array(
     type: z.enum(["work", "school"]),
     title: z.string().min(1),
     organization: z.string().min(1),
-    start: z.string().min(1),
+    start: z.string().min(1).optional(),
     end: z.string().min(1),
     bullets: z.array(z.string().min(1)),
     projectSlug: z.string().min(1).optional(),

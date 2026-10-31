@@ -1,39 +1,85 @@
 [
   {
-    "id": "acme-developer",
+    "id": "pnc-web-trainer",
     "type": "work",
-    "title": "Software Developer (TODO: replace)",
-    "organization": "Acme Corp (TODO: replace)",
-    "start": "Jan 2024",
+    "title": "Web Trainer",
+    "organization": "Passerelles Numériques Cambodia",
     "end": "Present",
-    "bullets": [
-      "TODO: replace - Built customer-facing dashboards with React and TypeScript.",
-      "TODO: replace - Reduced page load times by rewriting the data-fetching layer.",
-      "TODO: replace - Mentored two junior developers through code reviews."
-    ]
+    "bullets": []
   },
   {
-    "id": "globex-intern",
+    "id": "freelance-software-developer",
     "type": "work",
-    "title": "Software Engineering Intern (TODO: replace)",
-    "organization": "Globex (TODO: replace)",
-    "start": "Jun 2023",
-    "end": "Dec 2023",
+    "title": "Software Developer",
+    "organization": "Freelance",
+    "end": "Present",
+    "bullets": []
+  },
+  {
+    "id": "apd-backend-development-officer",
+    "type": "work",
+    "title": "Backend Development Officer",
+    "organization": "APD Bank",
+    "start": "Feb 2025",
+    "end": "Sep 2026",
     "bullets": [
-      "TODO: replace - Shipped an internal tool that automated weekly reporting.",
-      "TODO: replace - Wrote API endpoints and tests for the billing service."
+      "Built the Attendance Service of a microservice-based HR platform, covering shift management, schedule assignment, attendance tracking and leave handling.",
+      "Developed a real-time internal chat platform, including admin reporting and WebSocket/STOMP subscription authorization.",
+      "Improved chat history API latency from about 400ms to about 14ms with Redis-based user validation, cursor pagination and database projections.",
+      "Resolved production incidents including RabbitMQ consumer failures and MinIO storage overload.",
+      "Defined REST API contracts and payload formats with frontend developers."
+    ],
+    "projectSlug": "employee-management-system"
+  },
+  {
+    "id": "apd-backend-trainee",
+    "type": "work",
+    "title": "Backend Trainee",
+    "organization": "APD Bank",
+    "start": "Aug 2025",
+    "end": "Feb 2026",
+    "bullets": [
+      "Extended an internal admin platform with task reminders and room booking reminders, using a cron-based service that sends notifications through the internal chat system.",
+      "Addressed penetration test findings by adding admin-only authorization on booking history and workflow approval actions.",
+      "Diagnosed production issues, including a workflow approval failure caused by a database remark-type mismatch."
+    ],
+    "projectSlug": "admin-management-system"
+  },
+  {
+    "id": "university-of-puthisastra",
+    "type": "school",
+    "title": "Bachelor's Degree in Computer Science (in progress)",
+    "organization": "University of Puthisastra",
+    "end": "Present",
+    "bullets": ["Currently in the third year."]
+  },
+  {
+    "id": "pnc-associate-degree",
+    "type": "school",
+    "title": "Associate Degree in Computer Science",
+    "organization": "Passerelles Numériques Cambodia",
+    "start": "2024",
+    "end": "2025",
+    "bullets": [
+      "Led student teams that delivered the Kheobs website, the POS Management System and the Face Detection & Attendance System."
     ]
   },
   {
-    "id": "university-degree",
+    "id": "high-school-diploma",
     "type": "school",
-    "title": "BSc in Computer Science (TODO: replace)",
-    "organization": "Example University (TODO: replace)",
-    "start": "Sep 2020",
-    "end": "Jun 2024",
-    "bullets": [
-      "TODO: replace - Focused on software engineering and human-computer interaction.",
-      "TODO: replace - Led a student team that built a campus events app."
-    ]
+    "title": "High School Diploma",
+    "organization": "Bac II Certificate",
+    "start": "2017",
+    "end": "2023",
+    "bullets": []
+  },
+  {
+    "id": "go-ahead-english-program",
+    "type": "school",
+    "title": "Intermediate English Program",
+    "organization": "Go Ahead, Kampong Thom",
+    "start": "2012",
+    "end": "2023",
+    "bullets": []
   }
 ]

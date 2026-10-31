@@ -39,13 +39,13 @@ Everything personal lives in `/content`. Pages, search and the chat prompt are a
 
 Content is validated when the site builds. A typo gives a clear error that names the file, and a `projectSlug` that doesn't match a project fails the build.
 
-| File              | Shape                                                                                                  |
-| ----------------- | ------------------------------------------------------------------------------------------------------ |
-| `profile.md`      | Frontmatter with `name`, `headline`, `preferredName?` and `location?`, then `##` sections (see below)  |
-| `skills.json`     | `{ hard: [{ group, items: [{ name, level, projects?: string[] }] }], soft: [{ name, description }] }`  |
-| `experience.json` | `[{ id, type: "work" \| "school", title, organization, start, end, bullets: string[], projectSlug? }]` |
-| `projects.json`   | `[{ slug, title, description, tags: string[], repoUrl?, demoUrl?, highlights?: string[] }]`            |
-| `contact.json`    | `{ email, github, linkedin, phone?, location? }`                                                       |
+| File              | Shape                                                                                                   |
+| ----------------- | ------------------------------------------------------------------------------------------------------- |
+| `profile.md`      | Frontmatter with `name`, `headline`, `preferredName?` and `location?`, then `##` sections (see below)   |
+| `skills.json`     | `{ hard: [{ group, items: [{ name, level, projects?: string[] }] }], soft: [{ name, description }] }`   |
+| `experience.json` | `[{ id, type: "work" \| "school", title, organization, start?, end, bullets: string[], projectSlug? }]` |
+| `projects.json`   | `[{ slug, title, description, tags: string[], repoUrl?, demoUrl?, highlights?: string[] }]`             |
+| `contact.json`    | `{ email, github, linkedin, phone?, location? }`                                                        |
 
 Tips:
 
