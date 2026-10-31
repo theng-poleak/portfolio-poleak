@@ -12,7 +12,6 @@ export function buildSearchIndex(): SearchItem[] {
   const aboutFacts: [subtitle: string, values: string[]][] = [
     ["Focus area", sections.focusAreas],
     ["Currently", sections.currently],
-    ["Education", sections.education],
     ["Languages", sections.languages],
     ["Location", profile.location ? [profile.location] : []],
     ["Availability", sections.availability],
@@ -49,11 +48,11 @@ export function buildSearchIndex(): SearchItem[] {
 
   const experienceItems = experience.map((entry): SearchItem => ({
     id: `experience:${entry.id}`,
-    category: "Experience",
+    category: entry.type === "work" ? "Experience" : "About",
     title: entry.title,
     subtitle: entry.organization,
     keywords: entry.bullets,
-    href: `/experience#${entry.id}`,
+    href: `${entry.type === "work" ? "/experience" : "/about"}#${entry.id}`,
   }));
 
   const hardSkills = skills.hard.flatMap((group) =>

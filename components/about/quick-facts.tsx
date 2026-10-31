@@ -1,4 +1,4 @@
-import { BriefcaseBusiness, GraduationCap, Languages, MapPin } from "lucide-react";
+import { BriefcaseBusiness, Languages, MapPin } from "lucide-react";
 
 import { Card } from "@/components/ui/card";
 import type { Profile } from "@/lib/content";
@@ -8,7 +8,6 @@ function getFacts(profile: Profile) {
 
   return [
     { label: "Currently", icon: BriefcaseBusiness, values: sections.currently },
-    { label: "Education", icon: GraduationCap, values: sections.education },
     { label: "Languages", icon: Languages, values: sections.languages },
     { label: "Location", icon: MapPin, values: location ? [location] : [] },
   ].filter(({ values }) => values.length > 0);

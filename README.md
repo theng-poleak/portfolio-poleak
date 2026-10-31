@@ -39,18 +39,18 @@ Everything personal lives in `/content`. Pages, search and the chat prompt are a
 
 Content is validated when the site builds. A typo gives a clear error that names the file, and a `projectSlug` that doesn't match a project fails the build.
 
-| File              | Shape                                                                                                   |
-| ----------------- | ------------------------------------------------------------------------------------------------------- |
-| `profile.md`      | Frontmatter with `name`, `headline`, `preferredName?` and `location?`, then `##` sections (see below)   |
-| `skills.json`     | `{ hard: [{ group, items: [{ name, level, projects?: string[] }] }], soft: [{ name, description }] }`   |
-| `experience.json` | `[{ id, type: "work" \| "school", title, organization, start?, end, bullets: string[], projectSlug? }]` |
-| `projects.json`   | `[{ slug, title, description, tags: string[], repoUrl?, demoUrl?, highlights?: string[] }]`             |
-| `contact.json`    | `{ email, github, linkedin, phone?, location? }`                                                        |
+| File              | Shape                                                                                                    |
+| ----------------- | -------------------------------------------------------------------------------------------------------- |
+| `profile.md`      | Frontmatter with `name`, `headline`, `preferredName?` and `location?`, then `##` sections (see below)    |
+| `skills.json`     | `{ hard: [{ group, items: [{ name, level, projects?: string[] }] }], soft: [{ name, description }] }`    |
+| `experience.json` | `[{ id, type: "work" \| "school", title, organization, start?, end?, bullets: string[], projectSlug? }]` |
+| `projects.json`   | `[{ slug, title, description, tags: string[], repoUrl?, demoUrl?, highlights?: string[] }]`              |
+| `contact.json`    | `{ email, github, linkedin, telegram?, phone?, location? }`                                              |
 
 Tips:
 
 - Project `slug` values become URLs (`/projects/my-slug`), so use lowercase letters, numbers and hyphens.
-- `start` and `end` are free text, for example `Jan 2024` and `Present`.
+- `start` and `end` are free text, for example `Jan 2024` and `Present`. Leave both out to show no dates.
 - A skill's `level` is `strong`, `working` or `familiar`, and its `projects` are project slugs.
 - Every project tag must exactly match a skill name in `skills.json`. The build fails on a mismatch, a duplicate skill or an unknown project slug.
 - Anything in these files can be repeated by the chat assistant and is public on the site. Leave out `phone` or `location` if you'd rather not share them.
@@ -62,7 +62,11 @@ The Markdown in `profile.md` supports headings, bold, italics, links, lists, quo
 `/about` is built from the sections in `profile.md`. Any section you remove simply disappears from the page.
 
 - `## Intro` and `## Beyond code` are paragraphs.
-- `## Focus areas`, `## Currently`, `## Education`, `## Languages` and `## Availability` are bullet lists.
+- `## Focus areas`, `## Currently`, `## Languages` and `## Availability` are bullet lists.
+
+`## Greetings` is a bullet list for the chat page, not the About page, and needs at least one item. The first greeting always shows first, then the others rotate at random.
+
+The Education section comes from the `"school"` entries in `experience.json`. The `"work"` entries appear on `/experience`.
 
 Two optional files in `public/` are picked up automatically at build time:
 

@@ -7,6 +7,7 @@ import { ProfilePhoto } from "@/components/about/profile-photo";
 import { QuickFacts } from "@/components/about/quick-facts";
 import { Markdown } from "@/components/markdown";
 import { PageContainer } from "@/components/page-header";
+import { Timeline } from "@/components/timeline";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { getContent, publicFileExists } from "@/lib/content";
@@ -41,8 +42,9 @@ function AboutSection({ id, title, children }: AboutSectionProps) {
 }
 
 export default function AboutPage() {
-  const { profile } = getContent();
+  const { profile, experience } = getContent();
   const { sections } = profile;
+  const education = experience.filter(({ type }) => type === "school");
 
   return (
     <PageContainer>
@@ -103,6 +105,12 @@ export default function AboutPage() {
       <AboutSection id="quick-facts" title="Quick facts">
         <QuickFacts profile={profile} />
       </AboutSection>
+
+      {education.length > 0 && (
+        <AboutSection id="education" title="Education">
+          <Timeline entries={education} headingLevel="h3" />
+        </AboutSection>
+      )}
 
       {sections.beyondCode && (
         <AboutSection id="beyond-code" title="Beyond code">

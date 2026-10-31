@@ -24,7 +24,11 @@
         {
           "name": "REST APIs",
           "level": "strong",
-          "projects": ["employee-management-system", "apd-chat-system"]
+          "projects": [
+            "employee-management-system",
+            "apd-chat-system",
+            "student-score-record-system"
+          ]
         },
         {
           "name": "JPA/Hibernate",
@@ -62,6 +66,11 @@
           "projects": ["face-detection-attendance"]
         },
         {
+          "name": "NestJS",
+          "level": "working",
+          "projects": ["student-score-record-system"]
+        },
+        {
           "name": "Feign",
           "level": "familiar",
           "projects": ["employee-management-system"]
@@ -81,17 +90,30 @@
         {
           "name": "PostgreSQL",
           "level": "strong",
-          "projects": ["employee-management-system", "apd-chat-system"]
+          "projects": [
+            "employee-management-system",
+            "apd-chat-system",
+            "student-score-record-system"
+          ]
         },
         {
           "name": "Redis",
           "level": "working",
-          "projects": ["employee-management-system", "apd-chat-system"]
+          "projects": [
+            "employee-management-system",
+            "apd-chat-system",
+            "student-score-record-system"
+          ]
         },
         {
           "name": "Database schema design",
           "level": "working",
           "projects": ["pos-management-system"]
+        },
+        {
+          "name": "Prisma",
+          "level": "working",
+          "projects": ["student-score-record-system"]
         },
         { "name": "MySQL", "level": "familiar" },
         { "name": "Firebase", "level": "familiar" }
@@ -115,7 +137,12 @@
           "level": "familiar",
           "projects": ["pos-management-system"]
         },
-        { "name": "Eureka", "level": "familiar" }
+        { "name": "Eureka", "level": "familiar" },
+        {
+          "name": "BullMQ",
+          "level": "familiar",
+          "projects": ["student-score-record-system"]
+        }
       ]
     },
     {
@@ -178,11 +205,20 @@
           "projects": ["kheobs-website"]
         },
         {
+          "name": "Next.js",
+          "level": "working",
+          "projects": ["student-score-record-system"]
+        },
+        {
           "name": "React",
           "level": "familiar",
-          "projects": ["go-ahead-website"]
+          "projects": ["go-ahead-website", "student-score-record-system"]
         },
-        { "name": "TypeScript", "level": "familiar" },
+        {
+          "name": "TypeScript",
+          "level": "familiar",
+          "projects": ["student-score-record-system"]
+        },
         { "name": "Tailwind CSS", "level": "familiar" },
         { "name": "HTML5", "level": "familiar" },
         { "name": "CSS3", "level": "familiar" }
@@ -210,6 +246,11 @@
           "name": "face_recognition",
           "level": "working",
           "projects": ["face-detection-attendance"]
+        },
+        {
+          "name": "Google Sheets API",
+          "level": "working",
+          "projects": ["student-score-record-system"]
         },
         {
           "name": "pyttsx3",

@@ -37,7 +37,7 @@ export const navItems: NavItem[] = [
   {
     href: "/experience",
     label: "Experience",
-    description: "Work and education timeline",
+    description: "Work timeline",
     icon: BriefcaseBusiness,
   },
   {

@@ -8,6 +8,8 @@ import { Badge } from "@/components/ui/badge";
 import { getContent, getProject } from "@/lib/content";
 import { pageMetadata } from "@/lib/metadata";
 
+export const instant = false;
+
 export function generateStaticParams() {
   return getContent().projects.map(({ slug }) => ({ slug }));
 }

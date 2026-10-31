@@ -1,5 +1,27 @@
 [
   {
+    "slug": "student-score-record-system",
+    "title": "Student Score Record System",
+    "description": "Web application in progress where school administrators import students, subjects and marks from Google Sheets, and students see their results across five terms with every mark and weight explained.",
+    "tags": [
+      "TypeScript",
+      "Next.js",
+      "React",
+      "NestJS",
+      "REST APIs",
+      "PostgreSQL",
+      "Prisma",
+      "Redis",
+      "BullMQ",
+      "Google Sheets API"
+    ],
+    "highlights": [
+      "Built term workbook sync, where administrators connect one Google Sheet per term and confirm each subject and its weights before syncing.",
+      "Added reviewed and previewed sheet replacement, so marks change only when the new sheet's sync succeeds.",
+      "Wrote QA suites covering authentication, data isolation, sync, fault handling and the UI."
+    ]
+  },
+  {
     "slug": "employee-management-system",
     "title": "Employee Management System (EMS)",
     "description": "Backend for the Attendance Service of a microservice-based HR platform at APD Bank, covering shift management, schedule assignment, attendance tracking and leave handling.",

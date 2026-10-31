@@ -21,10 +21,11 @@ Poleak Theng, who goes by Leak, is a software developer based in Phnom Penh, Cam
 - Web Trainer at Passerelles Numériques Cambodia
 - Freelance Software Developer
 
-## Education
+## Greetings
 
-- Associate Degree in Computer Science, Passerelles Numériques Cambodia
-- Currently in the third year at University of Puthisastra
+- Hi, I am Leak. Welcome to my portfolio. What do you want to know about me?
+- Hello there! Ask me anything about my work and projects.
+- Curious about what I build? Go ahead and ask.
 
 ## Languages
 

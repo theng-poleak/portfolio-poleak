@@ -8,6 +8,7 @@ import { ChatError } from "@/components/chat/chat-error";
 import { ChatInput } from "@/components/chat/chat-input";
 import { ChatMessage, ThinkingIndicator } from "@/components/chat/chat-message";
 import { getMessageText, useChatSession } from "@/components/chat/chat-session";
+import { TypingGreeting } from "@/components/chat/typing-greeting";
 import { Button } from "@/components/ui/button";
 
 const SUGGESTED_QUESTIONS = [
@@ -19,7 +20,7 @@ const SUGGESTED_QUESTIONS = [
 
 const STICK_TO_BOTTOM_THRESHOLD = 48;
 
-export function ChatView() {
+export function ChatView({ greetings }: { greetings: string[] }) {
   const { chat, resetChat } = useChatSession();
   const { messages, sendMessage, regenerate, stop, status, error } = useChat({ chat });
   const [input, setInput] = useState("");
@@ -64,9 +65,7 @@ export function ChatView() {
     <div className="flex h-full flex-col">
       {isEmpty ? (
         <div className="flex flex-1 flex-col justify-end px-4 pb-6 text-center">
-          <h1 className="text-2xl font-semibold tracking-tight md:text-3xl">
-            What would you like to know about me?
-          </h1>
+          <TypingGreeting greetings={greetings} />
         </div>
       ) : (
         <>

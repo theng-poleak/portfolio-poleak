@@ -4,23 +4,21 @@
     "type": "work",
     "title": "Web Trainer",
     "organization": "Passerelles Numériques Cambodia",
+    "start": "Oct 2026",
     "end": "Present",
-    "bullets": []
-  },
-  {
-    "id": "freelance-software-developer",
-    "type": "work",
-    "title": "Software Developer",
-    "organization": "Freelance",
-    "end": "Present",
-    "bullets": []
+    "bullets": [
+      "Working on the Student Score Record System, where administrators import marks from Google Sheets and students see their results by term.",
+      "Built term workbook sync and safe sheet replacement, so marks change only when a new sheet's sync succeeds.",
+      "Wrote QA suites covering authentication, data isolation, sync, fault handling and the UI."
+    ],
+    "projectSlug": "student-score-record-system"
   },
   {
     "id": "apd-backend-development-officer",
     "type": "work",
     "title": "Backend Development Officer",
     "organization": "APD Bank",
-    "start": "Feb 2025",
+    "start": "Feb 2026",
     "end": "Sep 2026",
     "bullets": [
       "Built the Attendance Service of a microservice-based HR platform, covering shift management, schedule assignment, attendance tracking and leave handling.",
@@ -46,17 +44,31 @@
     "projectSlug": "admin-management-system"
   },
   {
+    "id": "code-for-cambodia-translator",
+    "type": "work",
+    "title": "English–Khmer Technical Translator",
+    "organization": "Freelance, Code for Cambodia",
+    "start": "Oct 2024",
+    "end": "Feb 2025",
+    "bullets": [
+      "Translated 15+ technical lesson modules from English to Khmer for the Code for Cambodia website.",
+      "Helped accelerate the launch of Khmer-language learning materials, making technical content more accessible to Khmer-speaking students.",
+      "Improved the learning experience by ensuring translations were clear, accurate and easy to understand.",
+      "Prepared and adapted lesson modules and learning materials based on provided lesson plans and learning objectives.",
+      "Maintained consistent technical terminology and language quality throughout the translated materials."
+    ]
+  },
+  {
     "id": "university-of-puthisastra",
     "type": "school",
-    "title": "Bachelor's Degree in Computer Science (in progress)",
+    "title": "Bachelor of Science in Information Technology (in progress)",
     "organization": "University of Puthisastra",
-    "end": "Present",
     "bullets": ["Currently in the third year."]
   },
   {
     "id": "pnc-associate-degree",
     "type": "school",
-    "title": "Associate Degree in Computer Science",
+    "title": "Associate of Web Programming (WEP)",
     "organization": "Passerelles Numériques Cambodia",
     "start": "2024",
     "end": "2025",

@@ -38,7 +38,7 @@ const experienceSchema = z.array(
     title: z.string().min(1),
     organization: z.string().min(1),
     start: z.string().min(1).optional(),
-    end: z.string().min(1),
+    end: z.string().min(1).optional(),
     bullets: z.array(z.string().min(1)),
     projectSlug: z.string().min(1).optional(),
   }),
@@ -60,15 +60,16 @@ const contactSchema = z.object({
   email: z.email(),
   github: z.url(),
   linkedin: z.url(),
+  telegram: z.url().optional(),
   phone: z.string().min(1).optional(),
   location: z.string().min(1).optional(),
 });
 
 export type ProfileSections = {
   intro: string;
+  greetings: string[];
   focusAreas: string[];
   currently: string[];
-  education: string[];
   languages: string[];
   availability: string[];
   beyondCode: string;
@@ -128,9 +129,9 @@ function parseProfileSections(body: string): ProfileSections {
   const sections = splitSections(body);
   return {
     intro: sections.get("intro") ?? "",
+    greetings: listItems(sections.get("greetings")),
     focusAreas: listItems(sections.get("focus areas")),
     currently: listItems(sections.get("currently")),
-    education: listItems(sections.get("education")),
     languages: listItems(sections.get("languages")),
     availability: listItems(sections.get("availability")),
     beyondCode: sections.get("beyond code") ?? "",
@@ -194,7 +195,11 @@ function assertSkillsAreConsistent({ skills, projects }: Content) {
   }
 }
 
-function assertContentIsConsistent({ experience, projects }: Content) {
+function assertContentIsConsistent({ profile, experience, projects }: Content) {
+  if (profile.sections.greetings.length === 0) {
+    throw new Error('Invalid content/profile.md: add a "## Greetings" list');
+  }
+
   const slugs = new Set<string>();
   for (const { slug } of projects) {
     if (slugs.has(slug)) {
