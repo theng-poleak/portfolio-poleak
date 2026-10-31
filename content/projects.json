@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "project-dashboard",
+    "title": "Analytics Dashboard (TODO: replace)",
+    "description": "TODO: replace - A real-time dashboard that turns raw product events into clear, shareable charts.",
+    "tags": ["Next.js", "TypeScript", "PostgreSQL"],
+    "repoUrl": "https://github.com/your-username/analytics-dashboard",
+    "demoUrl": "https://example.com/dashboard",
+    "highlights": [
+      "TODO: replace - Streams live updates to hundreds of concurrent viewers.",
+      "TODO: replace - Designed the query layer to keep reports under one second.",
+      "TODO: replace - Added role-based sharing for teams."
+    ]
+  },
+  {
+    "slug": "project-automation",
+    "title": "Report Automation Tool (TODO: replace)",
+    "description": "TODO: replace - A small internal tool that replaced a weekly manual spreadsheet process.",
+    "tags": ["Python", "REST APIs", "Docker"],
+    "repoUrl": "https://github.com/your-username/report-automation",
+    "highlights": [
+      "TODO: replace - Saved the team several hours every week.",
+      "TODO: replace - Runs on a schedule and alerts on failures."
+    ]
+  },
+  {
+    "slug": "project-campus-events",
+    "title": "Campus Events App (TODO: replace)",
+    "description": "TODO: replace - A mobile-friendly web app for finding and sharing student events.",
+    "tags": ["React", "Node.js", "Redis"],
+    "repoUrl": "https://github.com/your-username/campus-events",
+    "demoUrl": "https://example.com/campus-events"
+  }
+]

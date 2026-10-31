@@ -5,6 +5,8 @@ import { AppShell } from "@/components/layout/app-shell";
 import { SidebarScript } from "@/components/layout/sidebar-script";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { getContent } from "@/lib/content";
+import { siteUrl } from "@/lib/site";
 
 import "./globals.css";
 
@@ -18,12 +20,26 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "An AI chat portfolio.",
-};
+export function generateMetadata(): Metadata {
+  const { name, headline } = getContent().profile;
+  const description = `Chat with an AI assistant to learn about ${name}: ${headline}.`;
+
+  return {
+    metadataBase: new URL(siteUrl),
+    title: { default: `${name} | Portfolio`, template: `%s | ${name}` },
+    description,
+    openGraph: {
+      type: "website",
+      siteName: `${name} | Portfolio`,
+      title: `${name} | Portfolio`,
+      description,
+    },
+  };
+}
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
+  const { profile } = getContent();
+
   return (
     <html
       lang="en"
@@ -36,7 +52,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="h-full">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <TooltipProvider delayDuration={300}>
-            <AppShell siteName="Poleak">{children}</AppShell>
+            <AppShell siteName={profile.name}>{children}</AppShell>
           </TooltipProvider>
         </ThemeProvider>
       </body>

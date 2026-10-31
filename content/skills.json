@@ -1,0 +1,38 @@
+{
+  "hard": [
+    {
+      "group": "Languages (TODO: replace)",
+      "items": ["TypeScript", "JavaScript", "Python", "SQL"]
+    },
+    {
+      "group": "Frontend (TODO: replace)",
+      "items": ["React", "Next.js", "Tailwind CSS", "Accessibility"]
+    },
+    {
+      "group": "Backend (TODO: replace)",
+      "items": ["Node.js", "REST APIs", "PostgreSQL", "Redis"]
+    },
+    {
+      "group": "Tools (TODO: replace)",
+      "items": ["Git", "Docker", "Vercel", "GitHub Actions"]
+    }
+  ],
+  "soft": [
+    {
+      "name": "Communication (TODO: replace)",
+      "description": "Explains technical decisions clearly to both engineers and non-engineers."
+    },
+    {
+      "name": "Ownership (TODO: replace)",
+      "description": "Takes features from a rough idea through to release and follow-up."
+    },
+    {
+      "name": "Collaboration (TODO: replace)",
+      "description": "Gives kind, useful code reviews and enjoys pairing with teammates."
+    },
+    {
+      "name": "Curiosity (TODO: replace)",
+      "description": "Picks up new tools quickly and asks why before deciding how."
+    }
+  ]
+}
