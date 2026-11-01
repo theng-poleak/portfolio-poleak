@@ -103,7 +103,7 @@ export function AppShell({ siteName, searchItems, children }: AppShellProps) {
             href="/"
             className="flex min-w-0 items-center gap-2 rounded-lg px-1 py-1 outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
-            <SiteLogo name={siteName} />
+            <SiteLogo />
             <span className="truncate text-sm font-semibold">{siteName}</span>
           </Link>
           <Button

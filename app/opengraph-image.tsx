@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 
+import { SiteLogo } from "@/components/layout/site-logo";
 import { getContent } from "@/lib/content";
 
 export const alt = "Portfolio preview";
@@ -23,6 +24,7 @@ export default function OpengraphImage() {
         color: "white",
       }}
     >
+      <SiteLogo width={150} height={150} />
       <div style={{ fontSize: 76, fontWeight: 700 }}>{name}</div>
       <div
         style={{

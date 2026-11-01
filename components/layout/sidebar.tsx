@@ -36,7 +36,7 @@ export function SidebarContent({
           onClick={onNavigate}
           className="flex min-w-0 flex-1 items-center gap-2.5 rounded-lg px-1 py-1 outline-none focus-visible:ring-2 focus-visible:ring-sidebar-ring sidebar-collapsed:hidden"
         >
-          <SiteLogo name={siteName} />
+          <SiteLogo />
           <span className="truncate text-sm font-semibold">{siteName}</span>
         </Link>
         <Button
