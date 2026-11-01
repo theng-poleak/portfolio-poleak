@@ -1,41 +1,97 @@
 [
   {
-    "id": "acme-developer",
+    "id": "pnc-web-trainer",
     "type": "work",
-    "title": "Software Developer (TODO: replace)",
-    "organization": "Acme Corp (TODO: replace)",
-    "start": "Jan 2024",
+    "title": "Web Trainer",
+    "organization": "Passerelles Numériques Cambodia",
+    "start": "Oct 2026",
     "end": "Present",
     "bullets": [
-      "TODO: replace - Built customer-facing dashboards with React and TypeScript.",
-      "TODO: replace - Reduced page load times by rewriting the data-fetching layer.",
-      "TODO: replace - Mentored two junior developers through code reviews."
+      "Working on the Student Score Record System, where administrators import marks from Google Sheets and students see their results by term.",
+      "Built term workbook sync and safe sheet replacement, so marks change only when a new sheet's sync succeeds.",
+      "Wrote QA suites covering authentication, data isolation, sync, fault handling and the UI."
     ],
-    "projectSlug": "project-dashboard"
+    "projectSlug": "student-score-record-system"
   },
   {
-    "id": "globex-intern",
+    "id": "apd-backend-development-officer",
     "type": "work",
-    "title": "Software Engineering Intern (TODO: replace)",
-    "organization": "Globex (TODO: replace)",
-    "start": "Jun 2023",
-    "end": "Dec 2023",
+    "title": "Backend Development Officer",
+    "organization": "APD Bank",
+    "start": "Feb 2026",
+    "end": "Sep 2026",
     "bullets": [
-      "TODO: replace - Shipped an internal tool that automated weekly reporting.",
-      "TODO: replace - Wrote API endpoints and tests for the billing service."
+      "Built the Attendance Service of a microservice-based HR platform, covering shift management, schedule assignment, attendance tracking and leave handling.",
+      "Developed a real-time internal chat platform, including admin reporting and WebSocket/STOMP subscription authorization.",
+      "Improved chat history API latency from about 400ms to about 14ms with Redis-based user validation, cursor pagination and database projections.",
+      "Resolved production incidents including RabbitMQ consumer failures and MinIO storage overload.",
+      "Defined REST API contracts and payload formats with frontend developers."
     ],
-    "projectSlug": "project-automation"
+    "projectSlug": "employee-management-system"
   },
   {
-    "id": "university-degree",
-    "type": "school",
-    "title": "BSc in Computer Science (TODO: replace)",
-    "organization": "Example University (TODO: replace)",
-    "start": "Sep 2020",
-    "end": "Jun 2024",
+    "id": "apd-backend-trainee",
+    "type": "work",
+    "title": "Backend Trainee",
+    "organization": "APD Bank",
+    "start": "Aug 2025",
+    "end": "Feb 2026",
     "bullets": [
-      "TODO: replace - Focused on software engineering and human-computer interaction.",
-      "TODO: replace - Led a student team that built a campus events app."
+      "Extended an internal admin platform with task reminders and room booking reminders, using a cron-based service that sends notifications through the internal chat system.",
+      "Addressed penetration test findings by adding admin-only authorization on booking history and workflow approval actions.",
+      "Diagnosed production issues, including a workflow approval failure caused by a database remark-type mismatch."
+    ],
+    "projectSlug": "admin-management-system"
+  },
+  {
+    "id": "code-for-cambodia-translator",
+    "type": "work",
+    "title": "English–Khmer Technical Translator",
+    "organization": "Freelance, Code for Cambodia",
+    "start": "Oct 2024",
+    "end": "Feb 2025",
+    "bullets": [
+      "Translated 15+ technical lesson modules from English to Khmer for the Code for Cambodia website.",
+      "Helped accelerate the launch of Khmer-language learning materials, making technical content more accessible to Khmer-speaking students.",
+      "Improved the learning experience by ensuring translations were clear, accurate and easy to understand.",
+      "Prepared and adapted lesson modules and learning materials based on provided lesson plans and learning objectives.",
+      "Maintained consistent technical terminology and language quality throughout the translated materials."
     ]
+  },
+  {
+    "id": "university-of-puthisastra",
+    "type": "school",
+    "title": "Bachelor of Science in Information Technology (in progress)",
+    "organization": "University of Puthisastra",
+    "bullets": ["Currently in the third year."]
+  },
+  {
+    "id": "pnc-associate-degree",
+    "type": "school",
+    "title": "Associate of Web Programming (WEP)",
+    "organization": "Passerelles Numériques Cambodia",
+    "start": "2024",
+    "end": "2025",
+    "bullets": [
+      "Led student teams that delivered the Kheobs website, the POS Management System and the Face Detection & Attendance System."
+    ]
+  },
+  {
+    "id": "high-school-diploma",
+    "type": "school",
+    "title": "High School Diploma",
+    "organization": "Bac II Certificate",
+    "start": "2017",
+    "end": "2023",
+    "bullets": []
+  },
+  {
+    "id": "go-ahead-english-program",
+    "type": "school",
+    "title": "Intermediate English Program",
+    "organization": "Go Ahead, Kampong Thom",
+    "start": "2012",
+    "end": "2023",
+    "bullets": []
   }
 ]

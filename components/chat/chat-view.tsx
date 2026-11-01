@@ -8,18 +8,19 @@ import { ChatError } from "@/components/chat/chat-error";
 import { ChatInput } from "@/components/chat/chat-input";
 import { ChatMessage, ThinkingIndicator } from "@/components/chat/chat-message";
 import { getMessageText, useChatSession } from "@/components/chat/chat-session";
+import { TypingGreeting } from "@/components/chat/typing-greeting";
 import { Button } from "@/components/ui/button";
 
 const SUGGESTED_QUESTIONS = [
-  "Tell me about yourself",
-  "What are your strongest skills?",
-  "What projects are you proud of?",
-  "Are you open to new roles?",
+  "Who are you?",
+  "What are you working on now?",
+  "What do you focus on?",
+  "Are you available for freelance work?",
 ];
 
 const STICK_TO_BOTTOM_THRESHOLD = 48;
 
-export function ChatView() {
+export function ChatView({ greetings }: { greetings: string[] }) {
   const { chat, resetChat } = useChatSession();
   const { messages, sendMessage, regenerate, stop, status, error } = useChat({ chat });
   const [input, setInput] = useState("");
@@ -64,9 +65,7 @@ export function ChatView() {
     <div className="flex h-full flex-col">
       {isEmpty ? (
         <div className="flex flex-1 flex-col justify-end px-4 pb-6 text-center">
-          <h1 className="text-2xl font-semibold tracking-tight md:text-3xl">
-            What would you like to know about me?
-          </h1>
+          <TypingGreeting greetings={greetings} />
         </div>
       ) : (
         <>
@@ -115,8 +114,13 @@ export function ChatView() {
         />
       </div>
 
-      {isEmpty ? (
-        <div className="flex-1 px-4 pt-4">
+      <p className="shrink-0 px-4 py-2 text-center text-xs text-muted-foreground">
+        AI answers can be wrong. Chats may be used to improve Google&apos;s products, so
+        please don&apos;t share private information.
+      </p>
+
+      {isEmpty && (
+        <div className="flex-1 px-4 pt-2">
           <ul className="mx-auto flex max-w-3xl flex-wrap justify-center gap-2">
             {SUGGESTED_QUESTIONS.map((question) => (
               <li key={question}>
@@ -132,10 +136,6 @@ export function ChatView() {
             ))}
           </ul>
         </div>
-      ) : (
-        <p className="shrink-0 px-4 py-2 text-center text-xs text-muted-foreground">
-          AI answers can be wrong. Check the other pages for the details.
-        </p>
       )}
     </div>
   );

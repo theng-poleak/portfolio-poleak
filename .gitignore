@@ -34,6 +34,9 @@ yarn-error.log*
 .env*
 !.env.example
 
+# personal CV (contains private contact details; remove this line to publish it)
+/public/cv.pdf
+
 # vercel
 .vercel
 

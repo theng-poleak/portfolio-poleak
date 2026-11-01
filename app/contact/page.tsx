@@ -1,7 +1,7 @@
 import { Mail, MapPin, Phone, type LucideIcon } from "lucide-react";
 import type { ComponentType, SVGProps } from "react";
 
-import { GitHubIcon, LinkedInIcon } from "@/components/brand-icons";
+import { GitHubIcon, LinkedInIcon, TelegramIcon } from "@/components/brand-icons";
 import { CopyButton } from "@/components/copy-button";
 import { PageContainer, PageHeader } from "@/components/page-header";
 import { Card } from "@/components/ui/card";
@@ -45,6 +45,16 @@ export default function ContactPage() {
       href: contact.linkedin,
       icon: LinkedInIcon,
     },
+    ...(contact.telegram
+      ? [
+          {
+            label: "Telegram",
+            value: `@${contact.telegram.split("/").pop()}`,
+            href: contact.telegram,
+            icon: TelegramIcon,
+          },
+        ]
+      : []),
     ...(contact.phone
       ? [
           {

@@ -12,7 +12,7 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
-    "@ai-sdk/anthropic": "^4.0.94",
+    "@ai-sdk/google": "4.0.109",
     "@ai-sdk/react": "^4.0.163",
     "@upstash/ratelimit": "^2.2.0",
     "@upstash/redis": "^1.40.0",

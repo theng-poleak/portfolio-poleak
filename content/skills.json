@@ -1,38 +1,317 @@
 {
   "hard": [
     {
-      "group": "Languages (TODO: replace)",
-      "items": ["TypeScript", "JavaScript", "Python", "SQL"]
+      "group": "Backend",
+      "items": [
+        {
+          "name": "Java",
+          "level": "strong",
+          "projects": [
+            "employee-management-system",
+            "apd-chat-system",
+            "admin-management-system"
+          ]
+        },
+        {
+          "name": "Spring Boot",
+          "level": "strong",
+          "projects": [
+            "employee-management-system",
+            "apd-chat-system",
+            "admin-management-system"
+          ]
+        },
+        {
+          "name": "REST APIs",
+          "level": "strong",
+          "projects": [
+            "employee-management-system",
+            "apd-chat-system",
+            "student-score-record-system"
+          ]
+        },
+        {
+          "name": "JPA/Hibernate",
+          "level": "working",
+          "projects": ["employee-management-system"]
+        },
+        {
+          "name": "Cursor pagination",
+          "level": "working",
+          "projects": ["employee-management-system", "apd-chat-system"]
+        },
+        {
+          "name": "Role-based authorization",
+          "level": "working",
+          "projects": ["employee-management-system", "admin-management-system"]
+        },
+        {
+          "name": "Penetration-test remediation",
+          "level": "working",
+          "projects": ["admin-management-system"]
+        },
+        {
+          "name": "Input sanitization",
+          "level": "working",
+          "projects": ["go-ahead-website"]
+        },
+        {
+          "name": "PHP (MVC)",
+          "level": "working",
+          "projects": ["pos-management-system"]
+        },
+        {
+          "name": "Python",
+          "level": "working",
+          "projects": ["face-detection-attendance"]
+        },
+        {
+          "name": "NestJS",
+          "level": "working",
+          "projects": ["student-score-record-system"]
+        },
+        {
+          "name": "Feign",
+          "level": "familiar",
+          "projects": ["employee-management-system"]
+        },
+        {
+          "name": "Cron jobs",
+          "level": "familiar",
+          "projects": ["admin-management-system"]
+        },
+        { "name": "JWT authentication", "level": "familiar" },
+        { "name": "Laravel", "level": "familiar" }
+      ]
     },
     {
-      "group": "Frontend (TODO: replace)",
-      "items": ["React", "Next.js", "Tailwind CSS", "Accessibility"]
+      "group": "Databases",
+      "items": [
+        {
+          "name": "PostgreSQL",
+          "level": "strong",
+          "projects": [
+            "employee-management-system",
+            "apd-chat-system",
+            "student-score-record-system"
+          ]
+        },
+        {
+          "name": "Redis",
+          "level": "working",
+          "projects": [
+            "employee-management-system",
+            "apd-chat-system",
+            "student-score-record-system"
+          ]
+        },
+        {
+          "name": "Database schema design",
+          "level": "working",
+          "projects": ["pos-management-system"]
+        },
+        {
+          "name": "Prisma",
+          "level": "working",
+          "projects": ["student-score-record-system"]
+        },
+        { "name": "MySQL", "level": "familiar" },
+        { "name": "Firebase", "level": "familiar" }
+      ]
     },
     {
-      "group": "Backend (TODO: replace)",
-      "items": ["Node.js", "REST APIs", "PostgreSQL", "Redis"]
+      "group": "Messaging and Architecture",
+      "items": [
+        {
+          "name": "RabbitMQ",
+          "level": "working",
+          "projects": ["employee-management-system", "apd-chat-system"]
+        },
+        {
+          "name": "Microservices",
+          "level": "working",
+          "projects": ["employee-management-system"]
+        },
+        {
+          "name": "System architecture",
+          "level": "familiar",
+          "projects": ["pos-management-system"]
+        },
+        { "name": "Eureka", "level": "familiar" },
+        {
+          "name": "BullMQ",
+          "level": "familiar",
+          "projects": ["student-score-record-system"]
+        }
+      ]
     },
     {
-      "group": "Tools (TODO: replace)",
-      "items": ["Git", "Docker", "Vercel", "GitHub Actions"]
+      "group": "DevOps and Deployment",
+      "items": [
+        {
+          "name": "Docker",
+          "level": "working",
+          "projects": ["employee-management-system"]
+        },
+        {
+          "name": "Nginx",
+          "level": "working",
+          "projects": ["kheobs-website"]
+        },
+        {
+          "name": "AWS",
+          "level": "working",
+          "projects": ["pos-management-system"]
+        },
+        {
+          "name": "MinIO",
+          "level": "working",
+          "projects": ["apd-chat-system"]
+        },
+        {
+          "name": "Production debugging",
+          "level": "working",
+          "projects": ["apd-chat-system", "admin-management-system"]
+        },
+        {
+          "name": "Kubernetes",
+          "level": "familiar",
+          "projects": ["employee-management-system"]
+        },
+        { "name": "CI/CD", "level": "familiar" }
+      ]
+    },
+    {
+      "group": "Frontend",
+      "items": [
+        {
+          "name": "Vue 3",
+          "level": "working",
+          "projects": ["go-ahead-website"]
+        },
+        {
+          "name": "Astro",
+          "level": "working",
+          "projects": ["go-ahead-website"]
+        },
+        {
+          "name": "JavaScript",
+          "level": "working",
+          "projects": ["pos-management-system"]
+        },
+        {
+          "name": "WordPress",
+          "level": "working",
+          "projects": ["kheobs-website"]
+        },
+        {
+          "name": "Next.js",
+          "level": "working",
+          "projects": ["student-score-record-system"]
+        },
+        {
+          "name": "React",
+          "level": "familiar",
+          "projects": ["go-ahead-website", "student-score-record-system"]
+        },
+        {
+          "name": "TypeScript",
+          "level": "familiar",
+          "projects": ["student-score-record-system"]
+        },
+        { "name": "Tailwind CSS", "level": "familiar" },
+        { "name": "HTML5", "level": "familiar" },
+        { "name": "CSS3", "level": "familiar" }
+      ]
+    },
+    {
+      "group": "Real-time and Integration",
+      "items": [
+        {
+          "name": "WebSocket/STOMP",
+          "level": "strong",
+          "projects": ["apd-chat-system"]
+        },
+        {
+          "name": "Nodemailer/SMTP",
+          "level": "working",
+          "projects": ["go-ahead-website"]
+        },
+        {
+          "name": "OpenCV",
+          "level": "working",
+          "projects": ["face-detection-attendance"]
+        },
+        {
+          "name": "face_recognition",
+          "level": "working",
+          "projects": ["face-detection-attendance"]
+        },
+        {
+          "name": "Google Sheets API",
+          "level": "working",
+          "projects": ["student-score-record-system"]
+        },
+        {
+          "name": "pyttsx3",
+          "level": "familiar",
+          "projects": ["face-detection-attendance"]
+        },
+        {
+          "name": "Facebook integration",
+          "level": "familiar",
+          "projects": ["go-ahead-website", "kheobs-website"]
+        }
+      ]
+    },
+    {
+      "group": "Tools",
+      "items": [
+        { "name": "Git", "level": "working" },
+        {
+          "name": "GitHub",
+          "level": "working",
+          "projects": ["pos-management-system", "face-detection-attendance"]
+        },
+        {
+          "name": "Jira",
+          "level": "working",
+          "projects": ["kheobs-website", "pos-management-system"]
+        },
+        {
+          "name": "phpMyAdmin",
+          "level": "familiar",
+          "projects": ["pos-management-system"]
+        },
+        { "name": "GitLab", "level": "familiar" },
+        { "name": "Power BI", "level": "familiar" }
+      ]
     }
   ],
   "soft": [
     {
-      "name": "Communication (TODO: replace)",
-      "description": "Explains technical decisions clearly to both engineers and non-engineers."
+      "name": "Communication",
+      "description": "Agreed REST API contracts, payload formats and error handling with frontend developers on the EMS and APD Chat System projects."
     },
     {
-      "name": "Ownership (TODO: replace)",
-      "description": "Takes features from a rough idea through to release and follow-up."
+      "name": "Problem solving and debugging",
+      "description": "Traced a workflow approval failure to a database remark-type mismatch, and found a timestamp bug contributing to slow large-file uploads."
     },
     {
-      "name": "Collaboration (TODO: replace)",
-      "description": "Gives kind, useful code reviews and enjoys pairing with teammates."
+      "name": "Responsibility",
+      "description": "Resolved production incidents on the APD Chat System, including RabbitMQ consumer failures and MinIO storage overload."
     },
     {
-      "name": "Curiosity (TODO: replace)",
-      "description": "Picks up new tools quickly and asks why before deciding how."
+      "name": "Time and task management",
+      "description": "Managed sprints and task distribution in Jira for the Kheobs website and the POS Management System."
+    },
+    {
+      "name": "Team leadership",
+      "description": "Led student teams that delivered the Kheobs website, the POS Management System and the Face Detection & Attendance System."
+    },
+    {
+      "name": "Adaptability",
+      "description": "Moved between Java Spring Boot services, a PHP POS system, a Python face detection system and an Astro website."
     }
   ]
 }

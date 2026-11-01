@@ -6,7 +6,27 @@ import type { SearchItem } from "@/lib/search-types";
 
 /** Flattens /content into the list the command palette searches on the client. */
 export function buildSearchIndex(): SearchItem[] {
-  const { skills, experience, projects } = getContent();
+  const { profile, skills, experience, projects } = getContent();
+  const { sections } = profile;
+
+  const aboutFacts: [subtitle: string, values: string[]][] = [
+    ["Focus area", sections.focusAreas],
+    ["Currently", sections.currently],
+    ["Languages", sections.languages],
+    ["Location", profile.location ? [profile.location] : []],
+    ["Availability", sections.availability],
+  ];
+
+  const aboutItems = aboutFacts.flatMap(([subtitle, values]) =>
+    values.map((value): SearchItem => ({
+      id: `about:${subtitle}:${value}`,
+      category: "About",
+      title: value,
+      subtitle,
+      keywords: [],
+      href: "/about",
+    })),
+  );
 
   const pages = navItems.map(({ href, label, description }): SearchItem => ({
     id: `page:${href}`,
@@ -28,18 +48,18 @@ export function buildSearchIndex(): SearchItem[] {
 
   const experienceItems = experience.map((entry): SearchItem => ({
     id: `experience:${entry.id}`,
-    category: "Experience",
+    category: entry.type === "work" ? "Experience" : "About",
     title: entry.title,
     subtitle: entry.organization,
     keywords: entry.bullets,
-    href: `/experience#${entry.id}`,
+    href: `${entry.type === "work" ? "/experience" : "/about"}#${entry.id}`,
   }));
 
   const hardSkills = skills.hard.flatMap((group) =>
     group.items.map((item): SearchItem => ({
-      id: `skill:${group.group}:${item}`,
+      id: `skill:${item.name}`,
       category: "Skills",
-      title: item,
+      title: item.name,
       subtitle: group.group,
       keywords: [],
       href: "/skills",
@@ -55,5 +75,12 @@ export function buildSearchIndex(): SearchItem[] {
     href: "/skills",
   }));
 
-  return [...pages, ...projectItems, ...experienceItems, ...hardSkills, ...softSkills];
+  return [
+    ...pages,
+    ...aboutItems,
+    ...projectItems,
+    ...experienceItems,
+    ...hardSkills,
+    ...softSkills,
+  ];
 }
