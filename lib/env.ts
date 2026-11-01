@@ -9,8 +9,8 @@ const optionalString = z.preprocess(
 
 const envSchema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
-  ANTHROPIC_API_KEY: optionalString,
-  ANTHROPIC_MODEL: optionalString.transform((value) => value ?? "claude-haiku-5-5"),
+  GEMINI_API_KEY: optionalString,
+  GEMINI_MODEL: optionalString.transform((value) => value ?? "gemini-3.5-flash-lite"),
   UPSTASH_REDIS_REST_URL: optionalString,
   UPSTASH_REDIS_REST_TOKEN: optionalString,
   CHAT_DAILY_LIMIT: z.preprocess(

@@ -114,8 +114,13 @@ export function ChatView({ greetings }: { greetings: string[] }) {
         />
       </div>
 
-      {isEmpty ? (
-        <div className="flex-1 px-4 pt-4">
+      <p className="shrink-0 px-4 py-2 text-center text-xs text-muted-foreground">
+        AI answers can be wrong. Chats may be used to improve Google&apos;s products, so
+        please don&apos;t share private information.
+      </p>
+
+      {isEmpty && (
+        <div className="flex-1 px-4 pt-2">
           <ul className="mx-auto flex max-w-3xl flex-wrap justify-center gap-2">
             {SUGGESTED_QUESTIONS.map((question) => (
               <li key={question}>
@@ -131,10 +136,6 @@ export function ChatView({ greetings }: { greetings: string[] }) {
             ))}
           </ul>
         </div>
-      ) : (
-        <p className="shrink-0 px-4 py-2 text-center text-xs text-muted-foreground">
-          AI answers can be wrong. Check the other pages for the details.
-        </p>
       )}
     </div>
   );

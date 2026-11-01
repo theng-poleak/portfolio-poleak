@@ -1,4 +1,4 @@
-import { createAnthropic, type AnthropicProviderOptions } from "@ai-sdk/anthropic";
+import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import {
   createUIMessageStreamResponse,
   streamText,
@@ -45,7 +45,7 @@ export async function POST(request: Request) {
     return errorResponse("That message couldn't be processed.", 400);
   }
 
-  if (!getEnv().ANTHROPIC_API_KEY) {
+  if (!getEnv().GEMINI_API_KEY) {
     return errorResponse(
       "The chat assistant isn't set up yet. Please try again later.",
       503,
@@ -77,17 +77,14 @@ export async function POST(request: Request) {
     );
   }
 
-  const anthropic = createAnthropic({ apiKey: requireEnv("ANTHROPIC_API_KEY") });
+  const google = createGoogleGenerativeAI({ apiKey: requireEnv("GEMINI_API_KEY") });
 
   const result = streamText({
-    model: anthropic(getEnv().ANTHROPIC_MODEL),
+    model: google(getEnv().GEMINI_MODEL),
     instructions: buildSystemPrompt(),
     messages: toModelMessages(parsed.data.messages),
     maxOutputTokens: MAX_OUTPUT_TOKENS,
     abortSignal: request.signal,
-    providerOptions: {
-      anthropic: { effort: "low" } satisfies AnthropicProviderOptions,
-    },
   });
 
   return createUIMessageStreamResponse({

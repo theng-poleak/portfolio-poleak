@@ -2,7 +2,7 @@
 
 A personal portfolio that looks and behaves like an AI chat app. The home page is a chat where an LLM answers questions about the owner, grounded only in the files in `/content`. There are also About, Skills, Experience, Projects and Contact pages, a Ctrl/Cmd+K search palette, dark and light themes, and a feedback form.
 
-Built with Next.js (App Router), TypeScript, Tailwind CSS, shadcn/ui, the Vercel AI SDK with Anthropic, Upstash Redis and Resend.
+Built with Next.js (App Router), TypeScript, Tailwind CSS, shadcn/ui, the Vercel AI SDK with Google Gemini, Upstash Redis and Resend.
 
 ## Local setup
 
@@ -17,11 +17,11 @@ pnpm dev
 
 Open <http://localhost:3000>. The site runs with no keys at all:
 
-| Feature       | Without keys in development                                                     |
-| ------------- | ------------------------------------------------------------------------------- |
-| Chat          | Shows a friendly "isn't set up yet" message. Add `ANTHROPIC_API_KEY` to use it. |
-| Rate limiting | Uses an in-memory limiter                                                       |
-| Feedback      | Logs the message to the server console                                          |
+| Feature       | Without keys in development                                                  |
+| ------------- | ---------------------------------------------------------------------------- |
+| Chat          | Shows a friendly "isn't set up yet" message. Add `GEMINI_API_KEY` to use it. |
+| Rate limiting | Uses an in-memory limiter                                                    |
+| Feedback      | Logs the message to the server console                                       |
 
 ### Commands
 
@@ -79,8 +79,8 @@ Validated in one place, `lib/env.ts`. Each variable is only enforced by the feat
 
 | Variable                   | Required in production | Description                                                                                       |
 | -------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------- |
-| `ANTHROPIC_API_KEY`        | Yes                    | Anthropic API key for the chat                                                                    |
-| `ANTHROPIC_MODEL`          | No                     | Model ID. Defaults to `claude-haiku-5-5`                                                          |
+| `GEMINI_API_KEY`           | Yes                    | Gemini API key for the chat, from [Google AI Studio](https://aistudio.google.com/apikey)          |
+| `GEMINI_MODEL`             | No                     | Model ID. Defaults to `gemini-3.5-flash-lite`                                                     |
 | `UPSTASH_REDIS_REST_URL`   | Yes                    | Upstash Redis REST URL                                                                            |
 | `UPSTASH_REDIS_REST_TOKEN` | Yes                    | Upstash Redis REST token                                                                          |
 | `CHAT_DAILY_LIMIT`         | No                     | Chat requests per day across all visitors. Defaults to `200`                                      |
@@ -101,9 +101,11 @@ In production, chat and feedback return a friendly "unavailable" response if Ups
 6. Deploy, then redeploy after any environment variable change.
 7. Optional: add your domain and set `NEXT_PUBLIC_SITE_URL` to it.
 
-### Set a spend limit
+### Stay on the free Gemini plan
 
-**Set a monthly spend limit on your Anthropic account** in the [Anthropic Console](https://console.anthropic.com) under billing limits. The per-IP and daily caps here keep usage low, but the account limit is the backstop if something goes wrong. Also keep `CHAT_DAILY_LIMIT` at a level you're comfortable paying for.
+The chat runs on Gemini's free plan, so don't enable billing on the Google Cloud project behind your API key. Check your model's current limits on the [AI Studio rate limit page](https://aistudio.google.com/rate-limit) and keep `CHAT_DAILY_LIMIT` below its daily request limit.
+
+Google may use free-plan prompts and replies to improve its products, so the chat page asks visitors not to share private information.
 
 ## How the chat is protected
 
